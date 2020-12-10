@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALBUM_BeerKing_Bad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    .text-center .form-signin buttonj {
+    font-family: Baskerville, Palatino Linotype, Palatino, Century Schoolbook L, Times New Roman, serif;
+}
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'app/css/signin.css' %}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <form class="form-signin">
+      <img src="{% static 'app/img/logo.jpg' %}" width="250" height="150" alt=""/>
+      <p><br></p>
+      <p>&nbsp;</p>
+      <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesión</h1>
+      <p><br></p>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input name="inputEmail" type="email" autofocus class="form-control" placeholder="Correo electronico">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <div class="checkbox mb-3"></div>
+      <label for="inputPassword" class="sr-only">password</label>
+      <input name="inputPassword" type="password" autofocus class="form-control" placeholder="Contraseña">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <div class="checkbox mb-3"></div>
+        <label>
+          <input type="checkbox" value="remember-me"> Recordar Ingreso
+        </label>
+      </div>
+      <div class="col-lg-12">
+        <div class="pull-left">
+          <a href="{% url 'home' %}" class="btn btn-lg btn-block">
+            <p class="btn-outline-success" style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; font-size: 1.25rem;">Iniciar Sesión</p>
+          </a>
+        </div>
+      </div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020</p><a href="{% url 'registrar' %}">Registrate aquí&nbsp;&nbsp;
+    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../../bootstrap-4.5.2-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+  </body>
+</html>

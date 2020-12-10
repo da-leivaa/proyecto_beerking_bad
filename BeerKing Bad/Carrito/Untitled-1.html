@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script>
+        window.onload = function () {
+            let baseDeDatos = [
+                {
+                    id: 1,
+                    nombre: 'Cerveza 1',
+                    precio: 1200,
+                    imagen: 'Imagenes/c1.png'
+                },
+                {
+                    id: 2,
+                    nombre: 'Cerveza 2',
+                    precio: 1000,
+                    imagen: 'Imagenes/c2.png'
+                },
+                {
+                    id: 3,
+                    nombre: 'Cerveza 3',
+                    precio: 1100,
+                    imagen: 'Imagenes/c3.png'
+                },
+                {
+                    id: 4,
+                    nombre: 'Cerveza 4',
+                    precio: 1200,
+                    imagen: 'Imagenes/c4.png'
+                }
+
+            ]
+            let $items = document.querySelector('#items');
+            let carrito = [];
+            let total = 0;
+            let $carrito = document.querySelector('#carrito');
+            let $total = document.querySelector('#total');
+            let $botonVaciar = document.querySelector('#boton-vaciar');
+
+            function renderItems() {
+                for (let info of baseDeDatos) {
+                    let miNodo = document.createElement('div');
+                    miNodo.classList.add('card', 'col-sm-4');
+                    let miNodoCardBody = document.createElement('div');
+                    miNodoCardBody.classList.add('card-body');
+                    let miNodoTitle = document.createElement('h5');
+                    miNodoTitle.classList.add('card-title');
+                    miNodoTitle.textContent = info['nombre'];
+                    let miNodoImagen = document.createElement('img');
+                    miNodoImagen.classList.add('img-fluid');
+                    miNodoImagen.setAttribute('src', info['imagen']);
+                    let miNodoPrecio = document.createElement('p');
+                    miNodoPrecio.classList.add('card-text');
+                    miNodoPrecio.textContent = '$' + info['precio'];
+                    let miNodoBoton = document.createElement('button');
+                    miNodoBoton.classList.add('btn', 'btn-outline-success');
+                    miNodoBoton.textContent = '+';
+                    miNodoBoton.setAttribute('marcador', info['id']);
+                    miNodoBoton.addEventListener('click', anyadirCarrito);
+                    miNodoCardBody.appendChild(miNodoImagen);
+                    miNodoCardBody.appendChild(miNodoTitle);
+                    miNodoCardBody.appendChild(miNodoPrecio);
+                    miNodoCardBody.appendChild(miNodoBoton);
+                    miNodo.appendChild(miNodoCardBody);
+                    $items.appendChild(miNodo);
+                }
+            }
+
+            function anyadirCarrito () {
+                carrito.push(this.getAttribute('marcador'))
+                calcularTotal();
+                renderizarCarrito();
+            }
+
+            function renderizarCarrito() {
+                $carrito.textContent = '';
+                let carritoSinDuplicados = [...new Set(carrito)];
+                carritoSinDuplicados.forEach(function (item, indice) {
+                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                        return itemBaseDatos['id'] == item;
+                    });
+                    let numeroUnidadesItem = carrito.reduce(function (total, itemId) {
+                        return itemId === item ? total += 1 : total;
+                    }, 0);
+                    let miNodo = document.createElement('li');
+                    miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+                    miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0]['nombre']} - $${miItem[0]['precio']}`;
+                    let miBoton = document.createElement('button');
+                    miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+                    miBoton.textContent = 'X';
+                    miBoton.style.marginLeft = '1rem';
+                    miBoton.setAttribute('item', item);
+                    miBoton.addEventListener('click', borrarItemCarrito);
+                    miNodo.appendChild(miBoton);
+                    $carrito.appendChild(miNodo);
+                })
+            }
+
+            function borrarItemCarrito() {
+                console.log()
+                let id = this.getAttribute('item');
+                carrito = carrito.filter(function (carritoId) {
+                    return carritoId !== id;
+                });
+                renderizarCarrito();
+                calcularTotal();
+            }
+
+            function calcularTotal() {
+                total = 0;
+                for (let item of carrito) {
+                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                        return itemBaseDatos['id'] == item;
+                    });
+                    total = total + miItem[0]['precio'];
+                }
+                let totalDosDecimales = total.toFixed(2);
+                $total.textContent = totalDosDecimales;
+            }
+
+            function vaciarCarrito() {
+                carrito = [];
+                renderizarCarrito();
+                calcularTotal();
+            }
+
+            $botonVaciar.addEventListener('click', vaciarCarrito);
+
+            renderItems();
+        } 
+    </script>
+</head>
+<body>
+	<div class="navbar navbar-dark bg-success shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">      <strong>Carrito de Compras&nbsp;&nbsp;</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+<p class="offset-lg-0 col-lg-12">&nbsp;</p>
+<center>
+<img src="../Imagenes/logo_cara.jpg" alt="" width="420" height="250"/>&nbsp; &nbsp; &nbsp; &nbsp;
+	</center>
+<div class="container">
+    <div class="row">
+          <main id="items" class="col-sm-8 row"></main>
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <p class="text-right">Total: $ <span id="total"></span></p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </aside>
+        </div>
+</div>
+</body>
+	<p></p>
+	
+	
+	<p></p><footer class="text-muted">
+  <div class="container">
+    <p class="float-right">&nbsp; </p>
+    <p>Cervezas&nbsp; &nbsp;&copy; Beerking Bad, empleados en cocinar la mejor cepa&nbsp;&nbsp;</p>
+    <p>Ya sabes como es el cuerpo de tu beerking?<a href="../Album cervezas/index.html">Visita el album con la información&nbsp;&nbsp;</a>o ve al menú&nbsp; &nbsp;<a href="../../../bootstrap-4.5.2-examples/getting-started/introduction">Usando este Link&nbsp;</a>.</p>
+  </div>
+</footer>
+</html>

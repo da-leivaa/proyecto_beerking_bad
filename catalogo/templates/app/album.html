@@ -1,0 +1,104 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<section class="jumbotron text-center bg-success">
+  <div class="container">
+    <h1>Nuestros Ejemplares&nbsp;</h1>
+    <p class="lead text-center font-weight-bold">A continuación podrá revisar nuestro catálogo de cervezas, variedades, sabore, densidad y tipo de procesos que hace a nuestra cerveza inigualable.&nbsp; &nbsp;</p>
+    <p>
+      <a href="{% url 'carrito' %}" class="btn btn-success my-2">Ir al carro de compras&nbsp;</a>&nbsp;
+      <a href="#" class="btn btn-secondary my-2">&nbsp;Explorar más</a>
+    </p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="{% static 'app/img/cerveza rubia.jpeg' %}" width="238" height="214" alt=""/>           
+          <div class="card-body">
+            <p class="card-text ">Característica cerveza sin filtrar, que posee un sabor más fuerte a comparación de las demás cervezas.&nbsp; &nbsp;</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success">Like&nbsp;</button>
+              </div>
+              <small class="text-muted">&nbsp;126 Likes</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+        <img src="{% static 'app/img/cerbeza negra.jpeg' %}" width="235" height="214" alt=""/>            
+          <div class="card-body">
+            <p class="card-text">Beerking Black, esta cerveza se caracteriza por poseer un sabor más dulce a comparación de el resto.&nbsp;&nbsp;</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success">Like&nbsp;</button>
+              </div>
+              <small class="text-muted">100 Likes&nbsp;</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="{% static 'app/img/cerveza azul.jpeg' %}" width="228" height="214" alt=""/>            
+          <div class="card-body">
+            <p class="card-text">La novedad de las cervezas, una cerveza con gusto picantoso y con el color que la identifica, propia de la serie.&nbsp; &nbsp; &nbsp;&nbsp;</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success">Like&nbsp;</button>
+              </div>
+              <small class="text-muted">452 Likes</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="{% static 'app/img/cerveza lager.jpeg' %}" width="242" height="214" alt=""/>          
+          <div class="card-body">
+            <p class="card-text">La rubia clásica, cerveza con buen cuerpo y distintico sabor, que destaca en su sabor al igual que en su frescura.&nbsp;&nbsp;</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success">Like&nbsp;</button>
+              </div>
+              <small class="text-muted">201 Likes</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="{% static 'app/img/cerveza morena.jpeg' %}" width="218" height="214" alt=""/>              
+          <div class="card-body">
+            <p class="card-text">Esta distintiva cerveza se caracteriza por poseer un proceso de filtración más largo, lo que aporta un cuerpo más cargado.&nbsp; &nbsp;&nbsp;</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success">Like&nbsp;</button>
+              </div>
+              <small class="text-muted">107 Likes&nbsp;</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h3 class="text-center">Próximamente ....</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

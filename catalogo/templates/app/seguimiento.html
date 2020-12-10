@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Tu Pedido&nbsp; &nbsp;</h1>
+      <p>En la siguiente descripción indicaremos donde se encuenta tu pedido en este momento, los pedidos constan de 3 estados; los estados constan de, preparación el cual quiere decir que su compra se está préparando para ser despachada, tránsito, y recepcionado.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+      <p>&nbsp;</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Preparación&nbsp;</h2>
+        <p>Tú pedido en este momento se encuentra en estado de preparación, por lo que debes esperar a que se gestione la entrega en la fecha: Viernes 20 de Noviembre.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </p>
+        <p>&nbsp;</p>
+      <img src="{% static 'app/img/r.png' %}" alt="" width="200" height="200"/>      </div>
+      <div class="col-md-4">
+        <h2>Tránsito&nbsp;</h2>
+        <p>Tú pedido aún no pertenece a este estado, se te notificará cuando este se encuentre en estado de Tránsito.&nbsp; &nbsp;&nbsp; </p>
+        <p>&nbsp;</p>
+      <img src="{% static 'app/img/icono-camion-despacsdasfho.png' %}" width="250" height="251" alt=""/>      </div>
+      <div class="col-md-4">
+        <h2>Recepcionado&nbsp;</h2>
+        <p>Tu pedido aún no pertenece a este estado, se te notificará cuando este se encuentre en estado de Recepcionado.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+        <p>&nbsp;</p>
+      <img src="{% static 'app/img/assignment-tusadasfrned-in.png' %}" width="200" height="199" alt=""/>      </div>
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRARSE_BeerKing_Bad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    {% load static %}
+    
+    <link href="{% static 'app/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet"> 
+  </head>
+  <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{% static 'app/img/banner/logo_cara.jpg' %}" alt="" width="360" height="220">
+        <h2>Registro de Clientes&nbsp;</h2>
+        <p class="lead">A continuación, podrá registrar sus datos en las casillas para ser así un cliente de la marca, podrá realizar compras rápidas, recibir promociones y descuentos exclusivos de la marca(todos los campos son obligatorios)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 order-md-1 col-lg-12">
+          <h4 class="mb-3">Datos Personales&nbsp;</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Primer Nombre&nbsp;</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Favor de validar su nombre.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Segundo Nombre&nbsp;</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Favor de validar su segundo nombre(si no posee colocar .).
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="username">Nombre de Usuario&nbsp;</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" id="username" placeholder="Nombre de Usuario" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Se requiere un nombre de Usuario.
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email">&nbsp; Correo Electrónico </label>
+              <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+              <div class="invalid-feedback">
+                Favor de ingresar un mail válido.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="address">Dirección 1&nbsp;</label>
+              <input type="text" class="form-control" id="address" placeholder="Calle 1234" required>
+              <div class="invalid-feedback">
+                Favor de ingresar su Dirección.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="address2">&nbsp;Dirección 2 <span class="text-muted">(Opcional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Casa/Departamento 123">
+            </div>
+
+            <div class="row">
+              <div class="col-md-5 mb-3 col-lg-4">
+                <label for="country">País&nbsp;</label>
+                <select class="custom-select d-block w-100" id="country" required>
+                  <option value="">Elegir...</option>
+                  <option>Chile</option>
+                </select>
+                <div class="invalid-feedback"> Favor de elegír un País válido. </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="state">Región&nbsp;</label>
+                <select class="custom-select d-block w-100" id="state" required>
+                  <option value="">Elegir...</option>
+                  <option>Santiago</option>
+                </select>
+                <div class="invalid-feedback"> Favor de ingresar una región válida. </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="state">Comuna&nbsp;</label>
+                <select class="custom-select d-block w-100" id="state2" required>
+                  <option value="">Elegir...</option>
+                  <option>Maipú</option>
+                  <option>Pudahuel</option>
+                </select>
+                <div class="invalid-feedback">
+                  Favor de ingresar una comuna válida.
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="same-address">
+              <label class="custom-control-label" for="same-address">Acepto recibir información a mi corre(Descuentos, promociones, etc...)&nbsp;&nbsp;</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="save-info">
+              <label class="custom-control-label" for="save-info">Acepto los términos y condiciones&nbsp;</label>
+            </div>
+            <hr class="mb-4">
+            <h4 class="mb-3">Medio de pago&nbsp;</h4>
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                <label class="custom-control-label" for="credit">Tarjeta Crédito&nbsp; &nbsp;</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                <label class="custom-control-label" for="debit">Tarjeta Débito&nbsp;</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                <label class="custom-control-label" for="paypal">PayPal</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-name">Entidad Bancaria&nbsp;</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <small class="text-muted">Nombre completo de la entidad bancaria&nbsp; &nbsp;&nbsp;</small>
+                <div class="invalid-feedback">
+                  Se requiere nombre de Entidad Bancaria.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-number">Número de Tarjeta&nbsp;</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Se requiere número de tarjeta.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3 col-lg-6">
+                <label for="cc-expiration">Fecha de Vencimiento&nbsp;</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                <div class="invalid-feedback">
+                  Se requiere fecha de expiración de tarjeta.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3 col-lg-6">
+                <label for="cc-cvv">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  Se requiere código de seguridad
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <a class="btn btn-outline-success btn-lg btn-block" href="" type="submit">Registrarse&nbsp;</a>
+          </form>
+      </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../../bootstrap-4.5.2-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'app/js/form-validation' %}"></script>
+  </body>
+</html>
